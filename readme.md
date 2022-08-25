@@ -31,22 +31,25 @@ Check pod
 
 
 Test using 3 commands/terminal
-
+```
 # [terminal 1] forward the logger-server traffic locally:
 $ kubectl -n demo port-forward svc/logger-server 8080:80 
 Forwarding from 127.0.0.1:8080 -> 80
 Forwarding from [::1]:8080 -> 80
 Handling connection for 8080
-
+```
+```
 # [terminal 2] watch logs locally:
 $ kubectl -n demo logs deploy/logger-server -f
 127.0.0.1 - - [25/Nov/2020:16:03:41 +0000] "GET / HTTP/1.1" 200 612 "-" "curl/7.64.1" "-"
 127.0.0.1 - - [25/Nov/2020:16:03:42 +0000] "GET / HTTP/1.1" 200 612 "-" "curl/7.64.1" "-"
 127.0.0.1 - - [25/Nov/2020:16:03:43 +0000] "GET / HTTP/1.1" 200 612 "-" "curl/7.64.1" "-"
-
+```
+```
 # [terminal 3] generate HTTP traffic:
 $ curl localhost:8080
 <!DOCTYPE html>
 <html>
 <head>
 <title>Welcome to nginx!</title>
+```
